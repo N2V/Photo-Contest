@@ -16,33 +16,9 @@ In addition to the above admins can:
 Installation
 ---------
 
-This is a [RoR] 3.0 web application. MySQL is used as a data store. Assets and uploaded photos will be hosted on Amazon S3(on production environment). Steps needed to run the app:
+Please check the [installation] wiki for the needed steps to install the app.
 
- - Clone a copy of the repo: git clone git@github.com:N2V/Photo-Contest.git
-
- - Copy the file config/app_config.yml.default to config/app_config.yml and add your configuration.
- 
- - Copy the file config/database.yml.default to config/database.yml and add the proper database configuration.
-
- - Get the needed gems: bundle install --local
-  
- - Create the database: rake db:create
-  
- - Generate the database schema: rake db:migrate
- 
- - On development mode: install [mailcatcher] to see the outgoing emails.
- 
- - On production mode: Setup your S3 account and create a bucket and upload the content of public folder to it. 
- 
- - On production mode: Set the *default_url_options* and the *asset_host* in config/environments/production.rb
- 
- - You need to set the Apache virtual host, please check the WIKI for an example.
-
- - Restart your Apache server.
-
-  [RoR]: http://rubyonrails.org/
-  [mailcatcher]: https://github.com/sj26/mailcatcher
-
+[installation]: https://github.com/N2V/Photo-Contest/wiki/Installation
 
 Contribution
 -----------
