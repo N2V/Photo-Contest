@@ -1,0 +1,16 @@
+<div class="image winner">
+  <div class="placeholder">
+    <%=link_to(image_tag(image.image_file_url(:thumb)),contest_image_url(@contest,image),:target=>"_top",:class=>"load iframe") if image.image_file? %>
+  </div>
+  <div class="actions">
+    <%= t(:votes_num,:count=>image.up_votes)  %>
+  </div>
+  <div class="rank <%="creative_rank" if creative == true%>">
+    <%if creative%>
+      <%=  t :creative_prize%>
+    <%else%>
+      <%= t(:winner,:rank=>image_counter+1)  %>
+    <%end%>
+  </div>
+  <span class="winner-badge"><%=image_tag "#{creative ? "creative_": "" }winner.gif"%></span>
+</div>

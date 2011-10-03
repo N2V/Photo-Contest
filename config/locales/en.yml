@@ -1,0 +1,113 @@
+en:
+  errors:
+    messages:
+      unknown_error: "Unknow error has happened, please try again in a moment"
+      wrong_size: "is the wrong size (should be %{file_size})"
+      size_too_small: "is too small (should be at least %{file_size})"
+      size_too_big: "is too big (should be at most %{file_size})"
+  activerecord:
+    errors:
+      template:
+        header: "Sorry we couldn't save %{model}!"
+      models:
+        contest:
+          attributes:
+            languages:
+              inclusion: "are not set properly. Please select languages from the list"
+    models:
+      image: 'Photo'
+    attributes:
+      contest:
+        prizes_num: "Number of Prizes"
+        notifcations_sender_email: "Notifications Sender Email"
+        notifcations_receivers_emails: "Notifcations Receivers' Emails"
+        start_date: "Start Date"
+        end_date: "End Date"
+      contest_config:
+        welcome_note: "Welcome Note"
+        entry_format: "Entry Format"
+        inappropriate_content: "Inappropriate Content Rules"
+        upload_hint: "Upload Hint"
+        email_body: "Email Body"
+        header_image: "Header Image"
+        email_header_image: "Email Header Image"
+        fan_image: "Fans Image"
+        non_fan_image: "Non Fans Image"
+      image:
+        image_file: "Photo file"
+  views:
+    contest:
+      disclaimer: "Disclaimer"
+      age_condition: "To enter, you must be at least 13 years of age."
+      ar_config: "Arabic Settings"
+      en_config: "English Settings"
+      general_config: "General Settings"
+      opens_on: "Contest starts on %{date}"
+      ends_on: "Contest ends on %{date}"
+      ended_on: "Contest ended on %{date}"
+      name_hint: "40 characters or less"
+      admins_hint: "Comma separated list of Facebook user ids. To get a user id, use a link similar to this: https://graph.facebook.com/btaylor"
+      notifications_email_hint: "Sender email address that will appear in users notifications, e.g., Company Name <no-reply@example.com>"
+      notifications_bcc_emails_hint: "Comma separated list of emails that will receive notifications about users' interactions"
+      arabic: "Arabic"
+      english: "English"
+      demo_period: "Demo period - Contact us on media@n2v.com"
+      expired: "Demo period of this contest has expired"
+      will_expire: "Demo period of this contest will expire in %{period} days"
+    contest_config:
+      description_hint: "254 characters or less"
+      prizes_hint: "One prize per line"
+      entry_format_hint: "Upload instructions. As a best practice, keep the engagement requirement as simple as possible in order to maximize participation"
+      inappropriate_content_rules_hint: "One rule per line"
+      winning_eligibility_hint: "Winning criteria and conditions"
+      header_image_hint: "The header image. Image size must be : 730x165"
+      non_fan_image_hint: "The image that will appear for Non fans when they visit the application tab on your page. Image size must be: 490x425"
+      fan_image_hint: "The image that will appear for fans when they visit the application tab on your page. Image size must be: 490x545"
+      email_header_image_hint: "The header image that will be used in the emails sent by your contest. Image size must be: 500x110"
+      upload_hint: "Upload hint to be shown in the upload form"
+      email_body_hint: "Body text of the email sent to the user upon successful photo uploading"
+    pagination:
+      previous: "« Previous"
+      next: "Next »"
+      truncate: "..." 
+    shared:
+      disclaimer: "This promotion is in no way sponsored, endorsed or administered by, or associated with, Facebook. By participating, you hereby release and hold harmless Facebook from any and all liability associated with this promotion. You understand that you are providing your information to the %{contest_name} and not to Facebook. The information you provide will only be used for %{contest_name} application."
+      sort_by: "Sort by:"
+      most_votes: "Most Votes"
+      most_recent: "Most Recent"  
+    image:
+      form_instruction: "Use the form below to submit your photo:"
+      email_hint: "Your email will be kept private. We need it to contact if you win"
+      image_hint: "Maximum size is 10 MB"
+      your_name: "Your Name:"
+      your_email: "Your Email:"
+      photo: "Photo:"
+      rules_1: "By participating in this promotion you agree to the"
+      rules_2: "Official rules"
+      rules_3: "You are providing your information to %{contest_name} and not to Facebook."
+      voted_for_contest: "%{name} has voted for a photo in %{contest_name}"
+      back_to_submissions: "Back to submissions"
+      back_to_results: "Back to results"
+      js_name_alert: "Please fill your name"
+      js_email_alert: "Please fill your email"
+      js_photo_alert: "Please select a photo"
+      form_rules_msg: "No photo editing or drawing is allowed. Disqualified photos will be removed."
+      form_rules_example_msg: "Click here for an example"
+      form_publish_on_wall: "Publish on wall"
+      drop_creative_prize: "Cancel creative photo prize"
+      win_creative_prize: "Give creative photo prize"
+    error:
+      doesnt_exist: "The page you were looking for doesn't exist."
+      reason: "You may have mistyped the address or the page may have been moved due to violating the contest rules."
+      sorry: "We're sorry, but something went wrong."
+      notified: "We've been notified about this issue and we'll take a look at it shortly."
+  actionview:
+    image:
+      uploaded: "Photo was successfully uploaded"
+      deleted: "Photo was successfully removed"
+      updated: "Photo was updated successfully"
+    contest:
+      created: "Please set your contest settings"
+      updated: "Contest was updated successfully"
+    facebook:
+      joined: "Joined the %{contest_name}"

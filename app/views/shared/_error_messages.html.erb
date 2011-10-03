@@ -1,0 +1,14 @@
+<% use_header_message = true if local_assigns[:use_header_message].nil? %>
+
+<% if target.errors.any? %>
+  <div class="error_messages">
+    <% if(use_header_message)%>
+      <h2><%= t("activerecord.errors.template.header" , :model => target.class.human_name.downcase )%></h2>
+    <% end %>
+    <ul>
+      <% target.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

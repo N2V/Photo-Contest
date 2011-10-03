@@ -1,0 +1,62 @@
+<div class="clear" id="settings-<%=tab_id%>" <%= "style='display:none'" if hidden%>>
+  <%=contest_form.fields_for :contest_configs,contest_config do |c|%>
+    <%= c.hidden_field :lang,:value=>contest_config.lang %>
+    <div class="input">
+      <%=c.label :description %> <%= c.text_area :description ,:class=>'input_field' %>
+      <div class="input_hint"><%= t "views.contest_config.description_hint" %></div>
+    </div>
+  
+    <div class="input">
+      <%=c.label :welcome_note%> <%= c.text_area :welcome_note,:class=>'input_field' %>
+      <div class="input_hint"></div>
+    </div>
+
+    <div class="input">
+      <%=c.label :prizes%> <%= c.text_area :prizes,:class=>'input_field' %>
+      <div class="input_hint"><%= t "views.contest_config.prizes_hint" %></div>
+    </div>
+
+    <div class="input">
+      <%=c.label :entry_format%> <%= c.text_area :entry_format,:class=>'input_field' %>
+      <div class="input_hint"><%= t "views.contest_config.entry_format_hint" %></div>
+    </div>
+
+    <div class="input">
+      <%=c.label :inappropriate_content %> <%= c.text_area :inappropriate_content ,:class=>'input_field' %>
+      <div class="input_hint"><%= t "views.contest_config.inappropriate_content_rules_hint" %></div>
+    </div>
+
+    <div class="input">
+      <%=c.label :winning_eligibility %> <%= c.text_area :winning_eligibility ,:class=>'input_field' %>
+      <div class="input_hint"><%= t "views.contest_config.winning_eligibility_hint" %></div>
+    </div>
+    <div class="input">
+      <%=c.label :upload_hint %> <%= c.text_area :upload_hint ,:class=>'input_field' %>
+      <div class="input_hint"><%= t "views.contest_config.upload_hint" %></div>
+    </div>
+    <div class="input">
+      <%=c.label :email_body %> <%= c.text_area :email_body ,:class=>'input_field' %>
+      <div class="input_hint"><%= t "views.contest_config.email_body_hint" %></div>
+    </div>
+    <div class="input">
+      <%=c.label :header_image%> <%= c.file_field :header_image,:class=>'input_field' %>
+      <div class="input_hint"><%= t "views.contest_config.header_image_hint" %></div>
+    </div>
+
+    <div class="input">
+      <%=c.label :fan_image%> <%= c.file_field :fan_image,:class=>'input_field' %>
+      <div class="input_hint"><%= t "views.contest_config.fan_image_hint" %></div>
+    </div>
+
+    <div class="input">
+      <%=c.label :non_fan_image%> <%= c.file_field :non_fan_image,:class=>'input_field' %>
+      <div class="input_hint"><%= t "views.contest_config.non_fan_image_hint" %></div>
+    </div>
+
+    <div class="input">
+      <%=c.label :email_header_image%> <%= c.file_field :email_header_image,:class=>'input_field' %>
+      <div class="input_hint"><%= t "views.contest_config.email_header_image_hint" %></div>
+    </div>
+
+  <%end%>
+</div>

@@ -1,0 +1,14 @@
+<%
+if not (@contest.nil? or (@contest.get_languages.size) < 2) 
+  other_lang,other_locale = I18n.locale == :ar ? ['english','en'] : ['arabic','ar']
+%>
+
+<%
+  op = request.fullpath.include?('?') ? '&' : '?'
+  url = "#{request.fullpath}#{op}locale=#{other_locale}"
+%>
+
+  <div id="lang-selector">
+    <%=link_to image_tag("#{other_lang}.gif"),url%>
+  </div>
+<%end%>

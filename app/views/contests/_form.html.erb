@@ -1,0 +1,71 @@
+<%
+if @contest.contest_configs.count == 0
+  @contest.contest_configs.build(:lang=>'ar')
+  @contest.contest_configs.build(:lang=>'en') 
+end
+%>
+<%= form_for [@contest] ,:html => {:multipart => true} do |f| %>
+  <%= render "shared/error_messages", :target => @contest %>  
+  <div id="contest-settings">
+    <ul>
+      <li><a href="#settings-1"><span><%=t "views.contest.general_config"%></span></a></li>
+      <li id="settings-tab-2" <%= "style='display:none'"unless @contest.arabic?%> ><a href="#settings-2"><span><%=t "views.contest.ar_config"%></span></a></li>
+      <li id="settings-tab-3" <%= "style='display:none'" unless @contest.english?%>> <a href="#settings-3"><span><%=t "views.contest.en_config"%></span></a></li>
+    </ul>
+    <div id="settings-container">
+      <div class="clear" id="settings-1">
+        <div class="input">
+          <%=f.label :name%> <%= f.text_field :name , :class=>'input_field'%>
+          <div class="input_hint"><%=t "views.contest.name_hint"%></div>
+        </div>
+        <div class="input">
+          <%=f.label :prizes_num%> <%= f.text_field :prizes_num %>
+          <div class="input_hint"></div>
+        </div>
+        <div class="input">
+          <%=f.label :admins%> <%= f.text_field :admins, :class=>'input_field' %>
+          <div class="input_hint"><%=t "views.contest.admins_hint"%></div>
+        </div>
+        <div class="input">
+          <%=f.label :notifcations_sender_email%> <%= f.text_field :notifications_sender_email, :class=>'input_field' %>
+          <div class="input_hint"><%=t"views.contest.notifications_email_hint"%></div>
+        </div>
+        <div class="input">
+          <%=f.label :notifcations_receivers_emails%> <%= f.text_field :notifications_receivers_emails, :class=>'input_field' %>
+          <div class="input_hint"><%=t"views.contest.notifications_bcc_emails_hint"%></div>
+        </div>
+        <div class="input">
+          <%=f.label :start_date%> <%= f.text_field :start_date,:class=>'datepicker' %>
+          <div class="input_hint"></div>
+        </div>
+        <div class="input">
+          <%=f.label :end_date%> 
+          <%if @contest.demo?%>
+            <%= @contest.end_date %> <span id="demo-period">(<%=t "views.contest.demo_period"%>)</span>
+          <%else%> 
+            <%= f.text_field :end_date,:class=>'datepicker'  %>
+          <%end%>
+          <div class="input_hint"></div>
+        </div>
+        <div class="input">
+          <%=f.label :languages%>
+          <%= f.check_box :english  %> <%=f.label :english,:class=>'normal'%> 
+          <%= f.check_box :arabic  %> <%=f.label :arabic,:class=>'normal'%> 
+          <div class="input_hint"></div>
+        </div>
+        <div class="input">
+          <%=f.label :default_language%> 
+          <%= f.radio_button :default_language,'en'  %> <%=f.label :english,:class=>'normal'%> 
+          <%= f.radio_button :default_language,'ar'  %> <%=f.label :arabic,:class=>'normal'%> 
+          <div class="input_hint"></div>
+        </div>
+      </div>
+      <%=render :partial=>'contest_config_fields',
+        :locals=>{:contest_config=>@contest.contest_configs[0],:tab_id=>2,:hidden=>!@contest.arabic?,:contest_form=>f} %>
+      <%=render :partial=>'contest_config_fields',
+        :locals=>{:contest_config=>@contest.contest_configs[1],:tab_id=>3,:hidden=>!@contest.english?,:contest_form=>f} %>
+    </div>
+    <div class="actions">
+      <%= f.submit(t :save) %>
+    </div> 
+  <% end %>

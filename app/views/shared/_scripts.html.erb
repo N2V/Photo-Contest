@@ -1,0 +1,178 @@
+<script src="<%=request.scheme%>://connect.facebook.net/en_US/all.js"></script>
+<script>
+  
+  
+  $(document).ready(function() {
+    
+    FB.init({
+      appId  : '<%=APP_CONFIG[:fb_app_id]%>',
+      status : true, // check login status
+      cookie : true, // enable cookies to allow the server to access the session
+      xfbml  : true  // parse XFBML
+    });
+
+<%if not app_page? and not liked_page?%>
+      like_text = '<iframe src="<%=request.scheme%>://www.facebook.com/plugins/like.php?app_id=161752033892531&amp;href=<%=CGI.escape(@contest.page_link)
+%>&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>'
+      msg = "<div id='warn-like'><div id='warn-msg'>You should like our page to participate</div><div>"+like_text+"</div>\n\
+                                    <div id='click'>After you like the page <a id='like-done'>click here</a></div></div>"
+      $.fancybox({
+        content:msg,
+        modal:true
+      })
+      $('#like-done').live('click',function(){
+        location.href=location.href
+      })
+<%end%>
+    
+    FB.Canvas.setAutoResize();
+    var tabs = $("#tabs").tabs({
+      fx: { opacity: 'toggle',duration:'slow' },
+      spinner: '<%=t :loading%>',
+      selected:<%=@tab||1%>,
+      select: function(event, ui){FB.Canvas.setSize()},
+      load: function(event, ui){FB.Canvas.setSize()}
+    });
+    
+    $("#vote-now-link").click(function(){
+      tabs.tabs('select', 1)
+      return false;
+    })
+    
+    $("#upload-now-link,#results-now-link").click(function(){
+      tabs.tabs('select', 2);
+      return false;
+    })
+    
+    $(".rules-link").click(function(){
+      if($("#tabs .ui-tabs-panel").length > 4){tabs.tabs('select', 4);}
+      else{tabs.tabs('select', 3);}
+    })
+    
+    $(".vote-link").live('click',function(){
+      var link = $(this)
+      var $checkbox = link.parent().next().find(":checkbox");
+      if ($checkbox.is(':checked'))
+        FB.ui({
+          method: 'feed',
+          name: '<%=escape_javascript @contest.name%>',
+          link: link.attr('data-page-link'),
+          caption: 'contest.n2v.com',
+          picture: link.attr('data-image-link'),
+          description: '<%=escape_javascript @contest_config['description']%>',
+          message: '<%=t('views.image.voted_for_contest',:name=>session[:name],:contest_name=>@contest.name)%>'
+        });
+        
+      link.parents('.actions').html('<%=image_tag "#{I18n.locale}/voted.gif" %>');
+      
+      $.ajax({
+        type: 'POST',
+        url		: link.attr('href'),
+        cache	: false,
+        complete: function(a,e){
+          //
+        }
+      });
+      return false;
+    });
+   
+    
+    $('.profile-link').each(function(){
+      var link = $(this)
+      FB.api(link.attr('data-uid'), function(response) {
+        link.text(response.name)
+      });
+    })
+    
+    $('#report-link').click(function(){
+      var link = $(this)
+      $.ajax({
+        type		: "POST",
+        cache	: false,
+        url		: link.attr('href'),
+        data		: {link: link.attr('data-link')},
+        complete: function(){
+          link.parent().html('Reported, Thanks!')
+        }
+      });
+      return false
+    })
+    
+    $('#new_image').submit(function(e){
+      if($('#image_user_name').val().length < 3){
+        alert('<%=t "views.image.js_name_alert"%>')
+        return false
+      }  
+      if($('#image_user_email').val().length < 3){
+        alert('<%=t "views.image.js_email_alert"%>')
+        return false
+      }
+      
+    if($('#image_image_file').val().length < 3){
+      alert('<%=t "views.image.js_photo_alert"%>')
+      return false
+    }
+      
+  $('#image_submit').attr('disabled','disabled')
+  $('#image_submit').css('background-image','url(<%=image_path "#{I18n.locale}/uploaded.gif"%>)')
+  $('#uploader').show()
+})
+    
+$('.input .input_field').focus(function(){
+  $(this).next().show()
+}).blur(function(){
+  $(this).next().hide()
+})
+    
+$('.field_with_errors .input_field').focus(function(){
+  $(this).parent().next().show()
+}).blur(function(){
+  $(this).parent().next().hide()
+})
+    
+    
+$('#form-rules-close-msg a').click(function(){
+  $('#form-rules').fadeOut()
+  return false
+})
+    
+    
+setTimeout(function(){
+  $('#flash-messages').fadeIn()
+},1000)
+    
+setTimeout(function(){
+  $('#flash-messages').fadeOut()
+},6000)
+   
+$(".datepicker").datepicker({ dateFormat: 'yy-mm-dd' });
+    
+$("#contest-settings").tabs({
+  fx: { opacity: 'toggle',duration:'slow' },
+  select: function(event, ui){FB.Canvas.setSize()},
+  load: function(event, ui){FB.Canvas.setSize()}
+});
+    
+//
+$('#contest_default_language_en').attr('disabled', !($('#contest_english').attr('checked')=='checked'))
+$('#contest_default_language_ar').attr('disabled', !($('#contest_arabic').attr('checked')=='checked'))
+    
+$('#contest_english').click(function () {
+  var checked = $(this).attr('checked')=='checked'
+  if(checked){$('#settings-tab-3').show();$('#settings-3').show()}
+  else{ $('#settings-tab-3').hide();$('#settings-3').hide()}
+  $('#contest_default_language_en').attr('disabled', !checked)
+  $('#contest_default_language_en').attr('checked',checked )
+})
+    
+$('#contest_arabic').click(function () {
+  var checked = $(this).attr('checked')=='checked' 
+  if(checked){$('#settings-tab-2').show();$('#settings-2').show()}
+  else{ $('#settings-tab-2').hide();$('#settings-2').hide()}
+  $('#contest_default_language_ar').attr('disabled', !checked)
+  $('#contest_default_language_ar').attr('checked',checked )
+})
+    
+    
+});
+</script>

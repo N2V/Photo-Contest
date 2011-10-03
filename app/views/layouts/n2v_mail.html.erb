@@ -1,0 +1,11 @@
+<div style="width:500px;margin:auto">
+  <div style="margin-bottom:20px;">
+    <img src="<%=ContestApp::Application.config.action_controller.asset_host%>/images/email_header.gif" alt="Photo Contest" />
+  </div>
+  <div style="font-size:12px;margin: 20px;">
+    <%= yield %>
+  </div>
+  <div>
+    <img src="<%=ContestApp::Application.config.action_controller.asset_host%>/images/email_footer.gif" alt="Photo Contest">
+  </div>
+</div>

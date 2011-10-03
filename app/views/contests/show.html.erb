@@ -1,0 +1,58 @@
+<%time_left = (@contest.end_date - Date.today).to_i rescue 0%>
+<div class="header-image"> <%=image_tag("contests/#{@contest.id}/#{I18n.locale}/header.gif")%> </div>
+<%if @contest.admin?(current_user)%>
+  <%if @contest.paused?%>
+    <div id="contest-paused"><%= t 'views.contest.expired' %> </div>
+  <%elsif @contest.demo?%>
+    <div id="contest-paused"><%= t 'views.contest.will_expire',:period=>time_left %> </div>
+  <%end%>
+<%end%>
+<div id="tabs">
+  <div id="time-left">
+    <%if @contest.ended?%>
+      <%=t "views.contest.ended_on",:date=>@contest.end_date%>
+    <%else%>
+      <%=t 'time_left'%>
+      <span><%=time_left%> <%=t :days%></span>
+    <%end%>
+  </div>
+  <ul>
+    <li><a href="#fragment-1"><span><%=t :welcome%></span></a></li>
+    <li><a href="<%=contest_images_path(@contest,:page=>params[:page],:sort=>params[:sort])%>"><span><%=t :submissions%></span></a></li>
+    <%if @contest.paused?%>
+      <li style="display:none"></li>
+    <%else%>
+      <li><a href="#fragment-3"><span><%=@contest.live? ? t(:upload) : t(:results)%></span></a></li>
+    <%end%>
+    <%if @contest.user_images(current_user).size > 0 %>
+      <li><a href="<%=my_contest_images_path(@contest)%>"><span><%=t :my_photos%></span></a></li>
+    <%else%>
+      <li><a href="#fragment-4" style="display:none"><span><%=t :my_photos%></span></a></li>
+    <%end%>
+    <li><a href="#fragment-5"><span><%=t :rules%></span></a></li>
+    <%if @contest.admin? current_user%>
+      <li><a href="#fragment-6"><span><%= t :settings %></span></a></li>
+    <%end%>
+  </ul>
+  <div id="tabs-container">
+    <div id="fragment-1">
+      <%=render :partial=> "contests/welcome"%>
+    </div>
+    <div id="fragment-3">
+      <% if @contest.live? %>
+        <%=render :partial=>"images/form"%>
+      <%elsif @contest.ended?%>
+        <%=render :partial=>"contests/results"%>
+      <%end%>
+    </div>
+    <div id="fragment-4" style="display:none"> </div>
+    <div id="fragment-5">
+      <%=render :partial=> "contests/rules"%>
+    </div>
+    <%if @contest.admin? current_user%>
+      <div id="fragment-6">
+        <%=render :partial=> "contests/form"%>
+      </div>
+    <%end%>
+  </div>
+</div>

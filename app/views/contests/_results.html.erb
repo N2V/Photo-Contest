@@ -1,0 +1,5 @@
+<div id="thumbnails">
+  <%=render :partial=> "images/result",:collection => @contest.most_voted_results, :as => :image,:locals=>{:creative=>false}%>
+  <%=render :partial=> "images/result",:collection => @contest.creative_results, :as => :image,:locals=>{:creative=>true}%>
+</div>
+<div class="clear"></div>

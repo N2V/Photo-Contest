@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="<%=request.scheme%>://www.w3.org/1999/xhtml"
+      xmlns:og="<%=request.scheme%>://ogp.me/ns#"
+      xmlns:fb="<%=request.scheme%>://www.facebook.com/2008/fbml">
+  <head>
+    <title><%=@contest.name%></title>
+    <link rel="index" title="<%=@contest.name%>" href="<%=request.scheme%>://contest.n2v.com/" />
+    <link href='<%=ContestApp::Application.config.action_controller.asset_host%>/images/logo.jpg' rel="image_src"/>
+    <meta name="title" content="<%=@contest.name%>"/>
+    <meta name="description" content="<%=@contest_config['description']%>"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <%= stylesheet_link_tag "jquery.fancybox","#{I18n.locale}/style","#{I18n.locale}/jquery-ui" %>
+    <%= javascript_include_tag :defaults,"jquery.fancybox","jquery.pageless.min" %>
+  </head>
+  <body>
+    <div id="header"><%=render :partial=> 'shared/header'%></div>
+    <div id="main"><%= yield %></div> 
+    <div id="footer"><%=render :partial=> 'shared/footer'%></div>
+  </body>
+</html>

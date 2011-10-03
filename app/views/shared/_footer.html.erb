@@ -1,0 +1,7 @@
+<div id="fb-root"></div>
+<%unless app_page?%>
+<script src="<%=request.scheme%>://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+  <%=render :partial=> 'shared/footnote'%>
+<%end%>
+<%=raw google_analytics_js if Rails.env.production?%>
+<%=render :partial=> 'shared/scripts'%>

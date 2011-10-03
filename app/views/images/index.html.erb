@@ -1,0 +1,21 @@
+<div class="sorting"><%=t 'views.shared.sort_by'%> 
+  <%if params[:sort]=='votes'%>
+    <%=link_to t('views.shared.most_recent'), contest_url(@contest,:sort=>'recent'),:target=>'_top'%>
+    | 
+    <span class='clicked'><%=t('views.shared.most_votes')%></span>
+  <%else%>
+    <span class='clicked'><%=t 'views.shared.most_recent'%></span>
+    |
+    <%=link_to t('views.shared.most_votes'), contest_url(@contest,:sort=>'votes'),:target=>'_top'%>
+  <%end%>  
+</div>
+
+<div style="height:25px;margin: 5px 0;">
+<%= paginate @images,:window=>3,:left => 1, :right => 3,:params=>{ :controller => 'contests', :action => 'show',:id=>@contest.id,:sort=>params[:sort] } %>
+</div>
+<div id="thumbnails">
+  <%=render :partial=> "images/thumbnail",:collection => @images, :as => :image%>
+</div>
+<%= paginate @images,:window=>3,:left => 1, :right => 3,:params=>{ :controller => 'contests', :action => 'show',:id=>@contest.id,:sort=>params[:sort] } %>
+
+<div class="clear"></div>

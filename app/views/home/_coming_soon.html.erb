@@ -1,0 +1,7 @@
+<div id="coming-soon">
+  <%= image_tag 'coming_soon.gif' %>  
+  <%if @can_create_contest%>
+    <%=link_to image_tag('create_contest.gif'), new_contest_url,:target=>'_top'%>
+  <%end%>
+</div>
+

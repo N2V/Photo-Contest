@@ -1,0 +1,7 @@
+<%to = @contest.nil? ? app_url : contest_url(@contest)%>
+<div class="header-image"> <%=image_tag("#{I18n.locale}/header.gif")%> </div>
+<div class="error-page">
+  <h1><%= t('views.error.sorry') %></h1>
+  <p><%= t('views.error.notified') %></p>
+  <p id="back"><%=link_to image_tag("#{I18n.locale}/back.gif"),to,:target=>'_top'%></p>
+</div>

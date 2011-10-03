@@ -1,0 +1,22 @@
+<script>
+  $(document).ready(function() {
+    function checkDoesLike(page_id) {
+      FB.api({ method: 'pages.isFan', page_id: page_id }, function(resp) {
+        if (!resp) {
+          var like_text = '<iframe src="<%=request.scheme%>://www.facebook.com/plugins/like.php?app_id=161752033892531&amp;href=<%=CGI.escape(@contest.page_link)
+%>&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>'
+          var msg = "<div id='warn-like'><div id='warn-msg'>You should like our page to participate</div><div>"+like_text+"</div>\n\
+<div id='click'>After you like the page <a id='like-done'>click here</a></div></div>"
+          $.fancybox({
+            content:msg,
+            modal:true
+          })
+          $('#like-done').live('click',function(){
+            location.href=location.href
+          })
+        }
+      })
+    }
+    checkDoesLike('<%=@contest.page_id%>')
+  })
+</script>

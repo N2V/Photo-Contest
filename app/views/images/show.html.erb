@@ -1,0 +1,57 @@
+<%voted=current_user.voted? @image%>
+<div class="app-nav">
+  <%= link_to(@contest.ended? ? t("views.image.back_to_results") : t("views.image.back_to_submissions"), contest_url(@contest),:target=>'_top')%>
+</div>
+<div class="image-nav">
+  <%= link_to(t(:previous), contest_image_url(@contest,@prev),:target=>'_top') if @prev %> <%= link_to(t(:next),contest_image_url(@contest,@next),:target=>'_top') if @next %> 
+</div>
+<div class="big-image">
+  <%= link_to image_tag(@image.image_file_url(:large)),contest_image_url(@contest,@next),:target=>'_top' if @image.image_file? %>
+  <div class="actions">
+    <%if @contest.live?%>
+      <span>
+        <%if voted%>
+          <%=image_tag "#{I18n.locale}/voted.gif"%>
+        <%else%>
+          <%= link_to "", vote_contest_image_path(@contest,@image),{:class=>'vote-link',:"data-page-link"=>social_link(@image),:"data-image-link"=>@image.image_file_url(:thumb)} %>
+        <%end%>
+      </span>
+      <%unless voted%>
+        <div class="publish-question">
+          <%=check_box_tag 'publish','1',true,:id=>"publish-#{@image.id}"%>
+          <%=label_tag t('views.image.form_publish_on_wall')%>
+        </div>
+      <%end%>
+    <%end%>  
+  </div>
+</div>
+
+<div id="comments">
+  <%=raw facebook_comments(@image)%>
+</div>
+<div id="tools">
+  <div class="option">
+    <%=t :by%> <a target="_blank" href="<%=request.scheme%>://www.facebook.com/profile.php?id=<%=@image.user.uid%>" class="profile-link" data-uid="<%=@image.user.uid%>"></a>
+  </div>
+  <%if @contest.admin?(current_user)%>
+    <div class="option">  
+      <%=  t :email%>: <%=mail_to(@image.user_email, @image.user_name)%>
+    </div>
+  <%end%>
+  <div class="option">
+    <%= t(:votes_num,:count=>@image.up_votes)  %>
+  </div>
+  <div class="option"> <%=t(:added)%> <%=time_ago_in_words(@image.created_at) %> <%=t :ago%></div>
+  <div class="option"> <%=raw facebook_like(@image)%></div>
+  <%if @contest.ended? and @contest.admin?(current_user)%>
+    <div class="option">  
+      <%= link_to @image.won_creative_prize? ? t("views.image.drop_creative_prize") : t("views.image.win_creative_prize"),
+        mark_as_won_contest_image_path(@contest,@image),:confirm => t(:are_you_sure), :method => :post,:class=>"#{@image.won_creative_prize?? "un":"" }mark_creative" %>
+    </div>
+  <%end%>
+  <%if @image.can_be_deleted?(current_user)%>
+    <div class="option">  
+      <%= link_to t(:remove), contest_image_path(@contest,@image),:confirm => t(:are_you_sure), :method => :delete ,:class=>'remove' %>
+    </div>
+  <%end%>
+</div>

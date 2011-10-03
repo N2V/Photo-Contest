@@ -1,0 +1,18 @@
+<div id="my-photos">
+  <% @contest.user_images(current_user).each do |image|%>
+    <div class="preview">
+      <div class="placeholder">
+        <%=link_to image_tag(image.image_file_url(:thumb)),contest_image_url(@contest,image),:target=>"_top"%>
+      </div>
+      <div class="actions">
+        <span id="votes-num">
+          <%= t(:votes_num,:count=>image.up_votes)  %>
+        </span>
+      </div>
+      <div class="actions">  
+        <%= link_to t(:remove), contest_image_path(@contest,image),:confirm => t(:are_you_sure), :method => :delete ,:class=>'remove' %>
+      </div>
+    </div>
+  <%end%>
+</div>
+<div class="clear"></div>

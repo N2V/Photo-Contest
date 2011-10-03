@@ -1,0 +1,537 @@
+body { background-color: #fff; color: #333; }
+
+body, p, ol, ul, td {
+    font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+    font-size:   12px;
+    line-height: 18px;
+    font-weight: normal;
+    overflow: hidden;
+}
+
+img{border:0}
+
+
+ul, ol {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+}
+
+li.list {
+    background: none repeat scroll 0 0 transparent !important;
+    list-style: decimal outside none;
+    margin-left: 20px;
+    padding: 0 !important;
+}
+
+p{
+    margin-left: 3px;
+}
+
+a,a:visited,a:hover { color: #3B5998 }
+a,a:visited{text-decoration: none;}
+a:hover{text-decoration: underline}
+
+
+.success,.notice, .error, .alert {
+    padding: 5px 8px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.notice,.success {
+    background-color: #CFC;
+    border: solid 1px #6C6;
+}
+
+.error, .alert {
+    background-color: #FCC;
+    border: solid 1px #C66;
+}
+
+.image {
+    border: solid 1px #CCC;
+    padding: 4px;
+    float: left;
+    margin-right: 12px;
+    margin-bottom: 20px;
+    height: 200px
+}
+
+.image .user {
+    padding-top: 5px;
+    text-align: center;
+    font-style: italic;
+}
+
+.placeholder {
+    width: 150px;
+    height: 100px;
+    background-color: #F2F2F2;
+    text-align: center;
+}
+
+.image .actions {
+    font-size: 12px;
+    color: gray;
+}
+
+.clear{
+    clear:both;
+}
+
+.pagination {
+    clear: both;
+    color: gray;
+    margin: 10px 0px 20px;
+    text-align: center;
+    width: 800px;
+}
+
+.sorting{
+    position: absolute;
+    left: 20px;
+    top: 57px;
+}
+
+.sorting .clicked{
+    color:#999;
+}
+
+.sorting a{
+    color: #306EFF;
+    text-decoration: none;
+}
+
+.header{
+    background-color: #F2F2F2;
+    border-bottom: medium none;
+    border-top: 1px solid #E2E2E2;
+    padding: 4px 5px 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.box {
+    margin-bottom: 20px;
+}
+
+.box p {
+    margin-left: 10px;
+}
+
+textarea,input[type='text'],input[type='file'],select {
+    background:none repeat scroll 0 0 #FFFFFF;
+    border:1px solid #DDDDDD;
+    color: #666;
+    margin:0 0 8px;
+    padding:5px;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+}
+
+.input label{
+    float:left;
+    padding-top:5px;
+    text-align:right;
+    width:100px;
+    text-align:left;
+    margin-right: 10px;
+}
+
+.input .normal{float:none;margin: 0 20px}
+
+div#warn-like{
+    text-align: center;
+    padding:10px;
+}
+
+#warn-like #warn-msg{
+    margin:10px;
+    font-weight: bold;
+}
+
+#warn-like #click{
+    float:right;
+    font-size:11px;
+}
+
+#warn-like #click #like-done{
+    cursor:pointer;
+}
+
+#pageless-loader{
+    clear:both;
+    font-size: 11px;
+}
+
+#tabs-container{
+    border: 1px solid #dddddd;
+}
+
+form .actions{
+    margin: 10px 110px;
+    clear:both;
+}
+
+/* Error messages */
+
+.field_with_errors {
+    display: inline;
+}
+
+.error_messages, #error_explanation {
+    background:#FFCFCF;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    border-color:#E5A3A3;
+    color:#801B1B;
+    padding:5px 10px;
+    font-size:12px;
+    margin-bottom:10px;
+}
+
+.error_messages h2, #error_explanation h2 {
+    color:#801B1B;
+    font-weight:bold;
+    font-size:15px;
+    padding:5px 0px;
+}
+
+.error_messages p, #error_explanation p {
+    color:#111;
+    font-size:13px;
+    padding:5px 0px;
+}
+
+.error_messages ul, #error_explanation ul {
+    margin-left:10px;
+    list-style: circle inside
+}
+
+.vote-link {
+    background: url(../../images/en/vote.gif) no-repeat scroll 0 0 transparent;
+    border: medium none;
+    display: block;
+    height: 25px;
+    margin: 0;
+    padding: 0;
+    width: 78px;
+}
+
+.big-image {
+    clear: both;
+    background: none repeat scroll 0 0 #F2F2F2;
+    margin: 8px 0 17px;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.big-image .user{
+    font-style: italic; 
+}
+
+.image-nav{
+    text-align:right;
+}
+
+.big-image .vote-link{
+    margin-left:315px;
+}
+
+.image .vote-link{
+    margin-left:30px;
+}
+
+.big-image .actions,.image .actions{
+    margin:10px;
+    text-align: center;
+}
+
+.image-nav{
+    text-align:right;
+    float: right;
+    margin:5px 0;
+}
+
+.app-nav{
+    float: left;
+    margin:5px 0;
+}
+
+.preview {
+    border: solid 1px #CCC;
+    padding: 4px;
+    float: left;
+    margin-right: 3px;
+    margin-bottom: 20px;
+
+}
+
+#comments{
+    float:left;
+    width:500px;
+}
+
+#tools{
+    float:left;
+    width:220px;
+    font-size: 11px;
+}
+
+#tools .option{
+    border-bottom: 1px dotted #E2E2E2;
+    width:210px;
+    padding:3px;
+    margin:3px;
+    color: #999999;
+}
+
+.image-nav a {
+    padding: 3px 3px 2px;
+}
+
+.pagination a {
+    padding: 4px 6px;
+}
+
+.pagination a:hover {
+    background-color: #3B5998;
+    border-bottom: 1px solid #3B5998;
+    border-color: #D8DFEA #D8DFEA #3B5998;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 4px 6px;
+}
+
+.image-nav a:hover {
+    background-color: #3B5998;
+    border-bottom: 1px solid #3B5998;
+    border-color: #D8DFEA #D8DFEA #3B5998;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 3px 3px 2px;
+}
+
+.preview .actions {
+    text-align:center;
+    margin: 10px;
+}
+
+.remove{
+    padding: 4px 25px 5px;
+    background: url(../../images/remove.gif) 3px 1px no-repeat; 
+}
+
+.mark_creative{
+    padding: 4px 25px 5px;
+    background: url(../../images/unmark_creative.gif) 3px 1px no-repeat; 
+}
+
+.unmark_creative{
+    padding: 4px 25px 5px;
+    background: url(../../images/mark_creative.gif) 3px 1px no-repeat; 
+}
+
+
+
+#my-photos .preview{
+    margin-right: 12px; 
+    height:160px;
+    color:gray;
+}
+
+#my-photos #votes-num{
+    font-size: 12px;
+}
+
+
+.header-image{
+    text-align: center;
+}
+
+form .hint{
+    color:#666;
+}
+
+form .rules{
+    color:#666;
+}
+
+#contest_footnote_powered_by {
+    float: left;
+    width: 200px;
+}
+
+#contest_footnote_powered_by img {
+    float: left;
+    margin-right: 8px;
+}
+
+#contest_footnote_extra_links {
+    float: right;
+}
+
+#footnote {
+    color: #666666;
+    font-size: 80%;
+    margin-top: 30px;
+    overflow: hidden;
+    clear:both;
+}
+
+#disclaimer{
+    margin-bottom:15px;
+}
+
+#vote-now-link, #upload-now-link, #results-now-link{
+    margin-right: 0.1em;
+}
+
+form #image_submit{
+    display: block;
+    background-image: url(../../images/en/upload.gif);
+    width:78px;
+    height:25px;
+    cursor:pointer;
+    border:0 none;
+    float:left;
+    margin-right:10px;
+    margin-top:5px;
+    cursor: pointer;
+}
+
+form .input{
+    width: 100%;
+    clear:both;
+    height:40px;
+    margin: 5px 0;
+}
+
+form .input_field{
+    margin-right:10px;
+    float:left;
+}
+
+form .input_hint{
+    color:#666;
+    display:none;
+}
+
+
+
+#uploader{
+    display:none;
+    float:left;
+    margin: 5px 10px 5px 0;
+}
+
+
+#flash-messages{
+    display:none;
+}
+
+#lang-selector{
+    margin-bottom: 5px;
+    text-align: right;
+}
+
+.error-page { 
+    background-color: #fff; 
+    color: #666; text-align: center; 
+    margin: 50px 10px;
+}
+
+.error-page h1 {color: #f00; line-height: 1.5em; }
+
+.error-page #back{margin-top:50px;}
+
+#form-rules{
+    border: 1px solid #ddd;
+    background-color: #f4f4f4;
+    margin: 20px 0;
+}
+
+#form-rules #form-rules-msg{
+    color: red;
+    float: left;
+    padding: 10px;
+    width: 655px;
+}
+
+#form-rules #form-rules-close-msg{
+    float: left;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.sample {float:left;text-align:center}
+.sample img{margin-bottom: 20px}
+
+#time-left{
+    font-size: 11px;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    z-index: 1000;
+}
+#time-left span{font-weight: bold}
+
+fieldset{
+    border: 1px solid #DDDDDD;
+}
+
+.input textarea{
+    height:80px
+}
+
+.publish-question{
+    margin-top: 10px;
+    font-size: 10px;
+}
+
+.winner{
+    height:180px;
+    position: relative;
+}
+
+.rank{
+    background-color: #F5F5F5;
+    font-size: 14px;
+    margin: 10px 0;
+    padding: 5px;
+    color:gray;
+    text-align: center;
+}
+
+.creative_rank{
+    background-color: #fdebab;
+}
+
+
+.winner-badge{
+    left: 5px;
+    position: absolute;
+    top: 150px;
+}
+
+#coming-soon{
+    text-align: center
+}
+
+#demo-period{
+    color: red;
+    font-weight: bold;
+}
+
+#contest-paused{
+    background-color: red;
+    color: white;
+    font-size: 16px;
+    margin: 5px;
+    padding: 10px;
+    text-align: center;
+}

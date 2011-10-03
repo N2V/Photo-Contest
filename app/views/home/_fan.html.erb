@@ -1,0 +1,11 @@
+<%=link_to image_tag("contests/#{@contest.id}/#{I18n.locale}/fan.gif"),contest_url(@contest),:target=>'_top'%>
+<h3><%=@contest.ended? ? t(:results) : t(:latest_submission)%></h3>
+<div style="clear:both;margin-top:15px;">
+<%@images.each do |image|%>
+  <div class="preview">
+    <div class="placeholder">
+      <%=link_to image_tag(image.image_file_url(:thumb)),contest_url(@contest),:target=>'_top'%>
+    </div>
+  </div>
+<%end%>
+</div>

@@ -1,0 +1,26 @@
+<%voted = current_user.voted? image%>
+<div class="image <%="done" unless @contest.live?%>">
+  <div class="placeholder">
+    <%=link_to(image_tag(image.image_file_url(:thumb)),contest_image_url(@contest,image),:target=>"_top",:class=>"load iframe") if image.image_file? %>
+  </div>
+  <div class="actions">
+    <%= t(:votes_num,:count=>image.up_votes)  %>
+  </div>
+  <div class="actions">
+    <%if @contest.live?%>
+      <span>
+        <%if voted%>
+          <%=image_tag "#{I18n.locale}/voted.gif"%>
+        <%else%> 
+          <%= link_to "", vote_contest_image_path(@contest,image),{:class=>'vote-link',:"data-page-link"=>social_link(image),:"data-image-link"=>image.image_file_url(:thumb)} %>
+        <%end%>
+      </span>
+      <%unless voted%>
+        <div class="publish-question">
+          <%=check_box_tag 'publish','1',true,:id=>"publish-#{image.id}"%>
+          <%=label_tag t('views.image.form_publish_on_wall')%>
+        </div>
+      <%end%>
+    <%end%>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div id="footnote">
+  <div id="disclaimer">
+    <%=t "views.shared.disclaimer",:contest_name=>@contest.name%>
+  </div>
+  <div id="contest_footnote_powered_by">
+    <%=link_to image_tag("logo.jpg"), 'http://n2v.com',:target=>"_blank"%> Powered by <%=link_to "N2V", 'http://n2v.com',:target=>"_blank"%><br/>
+    <%=link_to "Back to our Page", @contest.page_link,:target=>"_top"%>
+  </div>
+  <div id="contest_footnote_extra_links">
+    <%=link_to 'Report Abuse', abuse_contest_path(@contest),:id=>"report-link",:"data-link"=>"#{facebook_app_url}#{request.fullpath}"%>
+  </div>
+</div>

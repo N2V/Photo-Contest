@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+  <head>
+    <link href="<%=@image.image_file_url(:thumb)%>" rel="image_src"/>
+    <meta property="og:site_name" content="<%=@contest.name%>"/>
+    <meta property="og:title" content="<%=@contest.name%>"/>
+    <meta property="og:description" content="<%=@contest_config['description']%>"/>
+    <meta property="og:image" content="<%=@image.image_file_url(:thumb)%>"/>
+    <meta property="og:type" content="article" />
+    <style>
+      body {
+        font-family:'lucida grande', tahoma, verdana, arial, sans-serif;
+        font-size:13px;
+        color:#333;
+      }
+    </style>
+  </head>
+  <body onload="top.location.href='<%=contest_image_url(@contest,@image)%>'">
+    Click to go to <a target="_blank" href="<%=contest_image_url(@contest,@image)%>">photo's page</a> on Facebook ...
+  </body>
+</html>
+
+

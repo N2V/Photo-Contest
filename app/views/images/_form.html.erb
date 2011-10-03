@@ -1,0 +1,35 @@
+<div id="form-rules">
+  <div id="form-rules-msg">
+    <%= @contest_config["upload_hint"]%>     
+  </div>
+  <div id="form-rules-close-msg"><%=link_to image_tag('close.gif'), close_form_rules_user_path(current_user)%></div>
+  <div class="clear"></div>
+</div>
+<div style="margin-bottom:10px">
+  <%=t('views.image.form_instruction')%>
+</div>
+<%= form_for [@contest,@image] ,:html => {:multipart => true} do |f| %>
+  <%= render "shared/error_messages", :target => @image %>
+  <div class="input">
+    <%=f.label :user_name, t('views.image.your_name')%> <%= f.text_field :user_name,:class=>'input_field' %>
+    <div class="input_hint"></div>
+  </div>
+  <div class="input">
+    <%=f.label :user_email, t('views.image.your_email')%> <%= f.text_field :user_email,:class=>'input_field' %>
+    <div class="input_hint"> <%=t('views.image.email_hint')%> </div>
+  </div>
+  <div class="input">
+    <%=f.label :image_file, t('views.image.photo')%> <%= f.file_field :image_file,:class=>'input_field' %>
+    <div class="input_hint"> <%=t('views.image.image_hint')%></div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit('') %>
+    <div id="uploader"><%=image_tag('uploader.gif') %></div>
+    <div class="hint">
+      <%=t('views.image.rules_1')%>
+      <a class="rules-link" href="#"> <%=t('views.image.rules_2')%></a>. 
+      <%=t('views.image.rules_3',:contest_name=>@contest.name)%>
+    </div>
+  </div>
+<% end %>

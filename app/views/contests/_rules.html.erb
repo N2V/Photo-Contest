@@ -1,0 +1,9 @@
+<p><%= t('views.contest.age_condition') %></p>
+<h2 class="header"><%= t('views.contest.entry_format') %></h2>
+<%=simple_format @contest_config["entry_format"]%>
+<h2 class="header"><%= t('views.contest.inappropriate_content') %></h2>
+<%=simple_format @contest_config["inappropriate_content"]%>
+<h2 class="header"><%= t('views.contest.winning_eligibility') %></h2>
+<%=simple_format @contest_config["winning_eligibility"]%>
+<h2 class="header"><%= t('views.contest.disclaimer') %></h2>
+<p><%= t('views.shared.disclaimer',:contest_name=>@contest.name) %></p>

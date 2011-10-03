@@ -1,0 +1,300 @@
+
+# Arabic translations for Ruby on Rails 
+# by Rida Al Barazi (me@rida.me)
+# updated by Ahmed Hazem (nardgo@gmail.com)
+# updated by Moski Doski
+ar:
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%e %b"
+      long: "%B %e, %Y"
+      day_month_year: "%d %b, %Y"
+      
+    day_names: [الأحد, الإثنين, الثلاثاء, الأربعاء, الخميس, الجمعة, السبت]
+    abbr_day_names: [الأحد, الإثنين, الثلاثاء, الأربعاء, الخميس, الجمعة, السبت]
+    month_names: [~, يناير, فبراير, مارس, ابريل, مايو, يونيو, يوليو, اغسطس, سبتمبر, اكتوبر, نوفمبر, ديسمبر]
+    abbr_month_names: [~, يناير, فبراير, مارس, ابريل, مايو, يونيو, يوليو, اغسطس, سبتمبر, اكتوبر, نوفمبر, ديسمبر]
+
+  
+  time:
+    formats:
+      default: "%a %b %d %H:%M:%S %Z %Y"
+      short: "%d %b %H:%M"
+      long: "%B %d, %Y %H:%M"
+      only_second: "%S"
+      day_month_year: "%d %b، %Y"
+      
+      datetime:
+        formats:
+          default: "%Y-%m-%dT%H:%M:%S%Z"
+          
+    am: 'صباحا'
+    pm: 'مساءا'
+
+  # Used in array.to_sentence.
+  support:
+    array:
+      sentence_connector: "و"
+      skip_last_comma: false
+      
+  datetime:
+    distance_in_words:
+      half_a_minute: 'نصف دقيقة'
+      less_than_x_seconds:
+        zero: '%{count} ثوان'
+        one: 'أقل من ثانية'
+        two: '%{count} ثوان'
+        few: '%{count} ثوان'
+        many: '%{count} ثوان'
+        other: '%{count} ثوان'
+      x_seconds:
+        zero: '%{count} ثوان'
+        one: 'ثانية واحدة'
+        two: '%{count} ثوان'
+        few: '%{count} ثوان'
+        many: '%{count} ثوان'
+        other: '%{count} ثوان'
+      less_than_x_minutes:
+        zero: '%{count} دقائق'
+        one: 'أقل من دقيقة'
+        two: '%{count} دقائق'
+        few: '%{count} دقائق'
+        many: '%{count} دقائق'
+        other: '%{count} دقائق'
+      x_minutes:
+        zero: '%{count} دقائق'
+        one: 'دقيقة واحدة'
+        two: '%{count} دقائق'
+        few: '%{count} دقائق'
+        many: '%{count} دقائق'
+        other: '%{count} دقائق'
+      about_x_hours:
+        zero: '%{count} ساعات'
+        one: 'حوالي ساعة واحدة'
+        two: '%{count} ساعات'
+        few: '%{count} ساعات'
+        many: '%{count} ساعات'
+        other: '%{count} ساعات'
+      x_days:
+        zero: '%{count} أيام'
+        one: 'يوم واحد'
+        two: '%{count} أيام'
+        few: '%{count} أيام'
+        many: '%{count} أيام'
+        other: '%{count} أيام'
+      about_x_months:
+        zero: '%{count} أشهر'
+        one: 'حوالي شهر واحد'
+        two: '%{count} أشهر'
+        few: '%{count} أشهر'
+        many: '%{count} أشهر'
+        other: '%{count} أشهر'
+      x_months:
+        zero: '%{count} أشهر'
+        one: 'شهر واحد'
+        two: '%{count} أشهر'
+        few: '%{count} أشهر'
+        many: '%{count} أشهر'
+        other: '%{count} أشهر'
+      about_x_years:
+        zero: '%{count} سنوات'
+        one: 'حوالي سنة'
+        two: '%{count} سنوات'
+        few: '%{count} سنوات'
+        many: '%{count} سنوات'
+        other: '%{count} سنوات'
+      over_x_years:
+        zero: '%{count} سنوات'
+        one: 'أكثر من سنة'
+        two: '%{count} سنوات'
+        few: '%{count} سنوات'
+        many: '%{count} سنوات'
+        other: '%{count} سنوات'
+        
+  number:
+    format:
+      separator: '.'
+      delimiter: ','
+      precision: 3
+    human:
+      format:
+        delimiter: ','
+        precision: 1
+    currency:
+      format:
+        separator: '.'
+        delimiter: ','
+        precision: 2
+        format: '%u %n'
+        unit: '$'
+    percentage:
+      format:
+        delimiter: ','
+    precision:
+      format:
+        delimiter: ','
+        
+  helpers:
+    select:
+      # Default value for :prompt => true in FormOptionsHelper
+      prompt: "يرجى الاختيار"
+
+    # Default translation keys for submit FormHelper
+    submit:
+      create: 'اضافة %{model}'
+      update: 'تحديث %{model}'
+      submit: 'حفظ %{model}'
+  errors:
+    messages:
+      unknown_error: "نأسف لقد حدث خطأ ما, برجاء المحاولة مره اخري"
+      wrong_size: "حجم الملف غير مناسب (يجب ان يكون الحجم الاقصي للملف %{file_size})"
+      size_too_small: "الملف صغير جدا (يجب ان يكون حجم الملف علي الاقل  %{file_size})"
+      size_too_big: "حجم الملف كبير  (يجب الا يزيد حجم الملف عن  %{file_size})"
+  activerecord:
+    errors:
+      messages:
+        name: "يمكن أن تكون أبجدية رقمية فقط من دون مسافات"
+        inclusion: "ليس خيارا مقبولا"
+        exclusion: "محجوز"
+        invalid: "غير معرف أو محدد"
+        confirmation: "لا تتوافق مع التأكيد"
+        accepted: "يجب أن تقبل"
+        empty: "فارغ، يرجى ملء الحقل"
+        blank: "فارغ، يرجى ملء الحقل"
+        too_long: "أطول من اللازم (الحد الأقصى هو %{count})"
+        too_short: "أقصر من اللازم (الحد الأدنى هو %{count})"
+        wrong_length: "بطول غير مناسب (يجب أن يكون %{count})"
+        taken: "غير متوفر (مستخدم)"
+        not_a_number: "ليس رقما"
+        greater_than: "يجب أن يكون أكبر من %{count}"
+        greater_than_or_equal_to: "يجب أن يكون أكبر من أو يساوي %{count}"
+        equal_to: "يجب أن يساوي %{count}"
+        less_than: "يجب أن يكون أصغر من %{count}"
+        less_than_or_equal_to: "يجب أن يكون أصغر من أو يساوي %{count}"
+        odd: "يجب أن يكون فردي"
+        even: "يجب أن يكون زوجي"
+        invalid_url : " ليس صحيحاً"
+      template:
+        header: "نأسف لم نتمكن من حفظ  %{model}!"
+      models:
+        contest:
+          attributes:
+            languages:
+              inclusion: "لم يتم اختيارها بشكل صحيح. يرجى الاختيار من اللائحة"
+            name:
+              too_short
+    models:
+      image: 'صورة'
+      contest: 'مسابقة'
+    attributes:
+      image:
+        image_file: "ملف الصورة"
+      contest:
+        name: "اسم المسابقة"
+        prizes_num: "عدد الجوائز"
+        admins: "المدراء"
+        notifcations_sender_email: "البريد المرسل للتنبيهات"
+        notifcations_receivers_emails: "لائحة بريد مستقبلي التنبيهات"
+        start_date: "تاريخ البدء"
+        end_date: "تاريخ الإغلاق"
+        languages: "اللغات"
+        default_language: "اللغة الرسمية"
+        arabic: "عربي"
+        english: "انكليزي"
+      contest_config: 
+        description: "الوصف"
+        welcome_note: "كلمة ترحيب"
+        prizes: "الجوائز"
+        timings: "موعد المسابقة"
+        entry_format: "طريقة المشاركة"
+        inappropriate_content: "محتوى غير ملائم"
+        upload_hint: "ملاحظة التحميل"
+        winning_eligibility: "اهلية الفوز"
+        email_body: "نص البريد الإلكتروني"
+        header_image: "صورة الترويسة"
+        email_header_image: "صورة ترويسة البريد الإلكتروني"
+        fan_image: "صورة المعجبين"
+        non_fan_image: "صورة غير المعجبين"
+  views:
+    contest:
+      description: "الوصف"
+      welcome_note: "كلمة ترحيب"
+      prizes: "الجوائز"
+      timings: "موعد المسابقة"
+      entry_format: "طريقة المشاركة"
+      inappropriate_content: "محتوى غير ملائم"
+      winning_eligibility: "اهلية الفوز"
+      disclaimer: "إخلاء المسئولية"
+      age_condition:  "للمشاركة في المسابقة يجب ان تكون فوق سن 13 عاماً"
+      ar_config: "اعدادات الواجهة العربية"
+      en_config: "اعدادات الواجهة الإنكليزية"
+      general_config: "الإعدادات العامّة"
+      name_hint: "٤٠ حرف على الأكثر"
+      admins_hint: "يرجى استخدام الفاصلة لفصل المعرفات. يمكن الحصول على المعرف من خلال رابط مشابه للتالي: https://graph.facebook.com/btaylor"
+      notifications_email_hint: "عنوان المرسل الذي سيظهر عند ارسال البريد الإلكتروني. مثال: Company Name <no-reply@example.com>"
+      notifications_bcc_emails_hint: "لائحة بعناوين البريد الإلكتروني التي سيصلها البريد عند الحاجة. يرجى استخدام الفاصلة لفصل العناوين"
+      opens_on: "تبدأ المسابقة في %{date}"
+      ends_on: "تنتهي المسابقة في %{date}"
+      ended_on: "انتهت المسابقة في %{date}"
+      demo_period: "فترة عرض - تواصل معنا على media@n2v.com"
+      expired: "فترة العرض لهذه المسابقة قد انتهت"
+      will_expire: "فترة العرض لهذه المسابقة ستنتهي في %{period} يوم"
+    contest_config:
+      description_hint: "٢٥٤ حرفا على الأكثر"
+      prizes_hint: "جائزة في كل سطر"
+      entry_format_hint: "تعليمات رفع الصور.‫ يستحسن ان تضع شروط واضحة وبسيطة كي تزيد نسبة المشاركة‬"
+      inappropriate_content_rules_hint: "قاعدة في كل سطر"
+      winning_eligibility_hint: "آلية الفوز في المسابقة"
+      header_image_hint: "صورة الترويسة. الحجم ٣٧٠*١٦٥"
+      non_fan_image_hint: "الصورة التي ستظهر لغير المعجبين بصفحتك عندما يزورون تبويبة التطبيق. الحجم ٤٩٠*٤٢٥"
+      fan_image_hint:  "الصورة التي ستظهر للمعجبين بصفحتك عندما يزورون تبويبة التطبيق. الحجم ٤٩٠*٥٤٥"
+      email_header_image_hint: "صورة الترويسة للبريد الإلكتروني المرسل للمستخدمين. الحجم ٥٠٠*١١٠"
+      upload_hint: "ملاحظة تظهر في نموذج التحميل"
+      email_body_hint: "نص البريد الإلكتروني المرسل اللمستخدم بعد تحميله الصورة"
+    pagination:
+      previous: "« السابق"
+      next: "التالي »"
+      truncate: "..." 
+    shared:
+      disclaimer: "هذه المسابقة غير مدعومة او مصممة عن طريق موقع فيس بوك. بالمشاركة في المسابقة فإنك تُخلي مسئولية موقع فيس بوك من أيه اضرار متعلقة بهذه المسابقة الدعائية.
+كما انك علي علمُ تام بأنك تزًود %{contest_name} ببعض معلوماتك الخاصة و ليس موقع فيس بوك , المعلومات المقدمة لن تستخدم إلا من قبل %{contest_name}."
+      sort_by: "فرز بواسطة:"
+      most_votes: "الأكثر تصويتا"
+      most_recent: "الأحدث"
+    image:
+      form_instruction: "قم بمليء البيانات التالية لتحميل الصورة و الإشتراك في المسابقة :"
+      email_hint: "لن يتم عرض بريدك الإلكتروني للأعضاء , سوف يتم استخدامه فقط في حالة فوزك في المسابقة"
+      image_hint: "أقصي حجم للملف 10 ميجابايب"
+      your_name: "الاسم بالكامل :"
+      your_email: "البريد الإلكتروني :"
+      photo: "الصورة :"
+      rules_1: "بالموافقة علي هذه المسابقة الدعائية فإنك توافق علي"
+      rules_2: "القوانين الرئيسية"
+      rules_3: "أنت تزًود %{contest_name} ببعض معلوماتك الخاصة و ليس موقع فيس بوك."
+      voted_for_contest: "%{name} قام بالتصويت لصورة في مسابقة %{contest_name}"
+      back_to_submissions: "العودة للمشاركات"
+      back_to_results: "العودة للنتائج"
+      js_name_alert: "الرجاء كتابة الاسم بالكامل"
+      js_email_alert: "الرجاء كتابة البريد الإلكتروني"
+      js_photo_alert: "الرجاء إختيار الصورة"
+      form_rules_msg: "لا تقبل الصور المرسومة رسما او المحررة. سيتم حذف الصور المخالفة."
+      form_rules_example_msg: "انقر هنا لمشاهدة مثال"
+      form_publish_on_wall: "انشر على الحائط"
+      drop_creative_prize: "الغ جائزة الإبداع"
+      win_creative_prize: "امنح جائزة ابداع"
+    error:
+      doesnt_exist    : "الصفحة التي تبحث عنها غير موجودة."
+      reason: "قد تكون اخطأت في عنوان الصفحة او انّ الصفحة ازيلت بسب مخالفتها لشروط المسابقه."
+      sorry: "نعتذر منك لكن خلل ما حدث."
+      notified: "نحن علم على بهذا الخلل و نحاول حلّ المشكلة سريعا."
+  actionview:
+    image:
+      uploaded: "تم تحميل الصورة بنجاح"
+      deleted: "تم حذف الصورة بنجاح"
+      updated: "تم تحديث الصورة بنجاح"
+    contest:
+      created: "يرجي ملء المعلومات الخاصة بالمسابقة"
+      updated: "تم تحديث المسابقة بنجاح"
+    facebook:
+      joined: "إنضم الي مسابقة صورة %{contest_name}"

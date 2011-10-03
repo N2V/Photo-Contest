@@ -1,0 +1,12 @@
+<%if @contest.new_record?%>
+  <%=render :partial=>"home/coming_soon"%>
+<%else%>
+  <%if @can_create_contest%>
+    <%=link_to image_tag('create_contest_2.gif'), new_contest_url,:target=>'_top'%>
+  <%end%>
+  <%if liked_page?(true)%>
+    <%=render :partial=>"home/fan"%>
+  <%else%>
+    <%=render :partial=>"home/non_fan"%>
+  <%end%>
+<%end%>

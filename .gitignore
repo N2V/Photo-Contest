@@ -1,0 +1,15 @@
+public/system/**
+db/*.sqlite3
+tmp/
+*.log
+tmp/**/*
+log/*.pid
+log/newrelic_agent_store.db
+config/database.yml
+nbproject
+.DS_Store
+config/database.yml
+config/app_config.yml
+public/uploads/
+vendor/ruby
+.bundle

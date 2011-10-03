@@ -1,0 +1,18 @@
+<h2 class="header"><%= t('views.contest.welcome_note') %></h2>     
+<%=simple_format @contest_config["welcome_note"]%>
+<h2 class="header"><%= t('views.contest.prizes') %></h2>      
+<%=simple_format @contest_config["prizes"]%>     
+<h2 class="header"><%= t('views.contest.timings') %></h2>
+<p>
+  <%= t 'views.contest.opens_on',:date=> @contest.start_date.to_formatted_s(:short_ordinal) rescue nil%>.<br/>   
+  <%=  t 'views.contest.ends_on',:date=> @contest.end_date.to_formatted_s(:short_ordinal) rescue nil%>.
+</p>
+
+<p>
+  <%if @contest.live?%>
+    <%=link_to image_tag("#{I18n.locale}/upload.gif"),'#',:id=>'upload-now-link'%>
+    <%=link_to image_tag("#{I18n.locale}/vote.gif"),'#',:id=>'vote-now-link'%>
+  <%elsif @contest.ended?%>
+    <%=link_to image_tag("#{I18n.locale}/results.gif"),'#',:id=>'results-now-link'%>
+  <%end%>
+</p>
