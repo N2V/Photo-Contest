@@ -7,6 +7,7 @@ development:
   s3_secret_access_key: ""
   s3_bucket: ""
   s3_region: ""
+  secret_token: "At least 30(preferred 128) characters and all random"
 production:
   fb_app_id: ""
   fb_app_name:  ""
@@ -24,3 +25,4 @@ production:
   smtp_username: ""
   smtp_password: ""
   smtp_tls: true
+  secret_token: "At least 30(preferred 128) characters and all random"
