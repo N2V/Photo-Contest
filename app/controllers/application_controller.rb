@@ -1,12 +1,12 @@
 class ApplicationController < ActionController::Base
   #protect_from_forgery
   
-#  rescue_from Exception, :with => :render_error
-#  rescue_from ActiveRecord::RecordNotFound, :with => :render_not_found
-#  rescue_from ActionController::RoutingError, :with => :render_not_found
-#  rescue_from ActionController::UnknownController, :with => :render_not_found
-#  # customize these as much as you want, ie, different for every error or all the same
-#  rescue_from ActionController::UnknownAction, :with => :render_not_found
+  rescue_from Exception, :with => :render_error
+  rescue_from ActiveRecord::RecordNotFound, :with => :render_not_found
+  rescue_from ActionController::RoutingError, :with => :render_not_found
+  rescue_from ActionController::UnknownController, :with => :render_not_found
+  # customize these as much as you want, ie, different for every error or all the same
+  rescue_from ActionController::UnknownAction, :with => :render_not_found
  
   helper_method :liked_page?,:facebook_app_url,:facebook_page_url
  
