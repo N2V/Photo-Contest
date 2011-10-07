@@ -18,14 +18,9 @@ class ApplicationController < ActionController::Base
   
   # Set path after sign in
   def after_sign_in_path_for(resource)
-    session[:return_to] || root_url
+    request.env['omniauth.origin'] || root_url
   end
-  
-  # Set path after sign in
-  def after_sign_out_path_for(resource)
-    session[:return_to] || root_url
-  end
-  
+
   def facebook_app_url
     "#{request.scheme}://apps.facebook.com/#{APP_CONFIG[:fb_app_name]}"
   end
@@ -97,8 +92,8 @@ class ApplicationController < ActionController::Base
   
   def require_login!
     if not current_user
-      session[:return_to] = "#{facebook_app_url}#{request.fullpath}"
-      render :text=> %|<script>window.top.location.href='#{user_omniauth_authorize_path(:facebook)}'</script>|
+      origin = "#{facebook_app_url}#{request.fullpath}"
+      render :text=> %|<script>window.top.location.href='#{user_omniauth_authorize_path(:facebook,:origin=>origin)}'</script>|
       return false
     elsif current_user and params[:signed_request] and current_user.uid != parse_data["user_id"]
       #      logger.info current_user.uid
