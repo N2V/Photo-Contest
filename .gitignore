@@ -6,6 +6,7 @@ tmp/**/*
 log/*.pid
 log/newrelic_agent_store.db
 config/database.yml
+config/newrelic.yml
 nbproject
 .DS_Store
 config/database.yml
